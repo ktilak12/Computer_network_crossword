@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+.pnp
+.pnp.js
+
+# Build artifacts
+dist/
+client/dist/
+build/
+.vite/
+client/.vite/
+
+# Cloudflare & Wrangler state
+.wrangler/
+.cloudflare/
+
+# Environment variables & sensitive credentials
+.env
+.env.*
+!.env.example
+client/.env
+client/.env.*
+!client/.env.example
+*.pem
+*.key
+*.cert
+*.crt
+
+# Scratch & development utilities
+scratch/
+.system_generated/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS & IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
