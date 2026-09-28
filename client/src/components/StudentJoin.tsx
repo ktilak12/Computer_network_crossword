@@ -101,7 +101,7 @@ export const StudentJoin: React.FC<StudentJoinProps> = ({
                 type="text"
                 placeholder="e.g. NET42X"
                 value={roomCode}
-                onChange={(e) => {
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   setRoomCode(e.target.value.toUpperCase());
                   setScannedSuccess(false);
                 }}
@@ -129,7 +129,7 @@ export const StudentJoin: React.FC<StudentJoinProps> = ({
                 type="text"
                 placeholder="Enter your name (e.g. Rahul, Priya)"
                 value={name}
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
                 maxLength={25}
                 className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-slate-100 font-sans text-sm placeholder-slate-600 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400"
                 required

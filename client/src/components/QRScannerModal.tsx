@@ -60,7 +60,7 @@ export const QRScannerModal: React.FC<QRScannerModalProps> = ({
       animationFrameRef.current = null;
     }
     if (streamRef.current) {
-      streamRef.current.getTracks().forEach((track) => track.stop());
+      streamRef.current.getTracks().forEach((track: MediaStreamTrack) => track.stop());
       streamRef.current = null;
     }
     if (videoRef.current) {
@@ -176,7 +176,7 @@ export const QRScannerModal: React.FC<QRScannerModalProps> = ({
   // Flip Camera between front & back
   const handleToggleFacingMode = () => {
     sound.playClick();
-    setFacingMode((prev) => (prev === 'environment' ? 'user' : 'environment'));
+    setFacingMode((prev: 'environment' | 'user') => (prev === 'environment' ? 'user' : 'environment'));
   };
 
   // Decode uploaded image

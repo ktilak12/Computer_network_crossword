@@ -46,7 +46,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState<'score' | 'progress' | 'name'>('score');
 
-  const players = Object.values(room.players);
+  const players: Player[] = Object.values(room.players);
   const totalCount = players.length;
   const completedCount = players.filter((p) => p.progress === 100).length;
   const avgScore = totalCount > 0 ? Math.round(players.reduce((sum, p) => sum + p.score, 0) / totalCount) : 0;
@@ -304,7 +304,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
                   </td>
                 </tr>
               ) : (
-                filteredPlayers.map((p, idx) => (
+                filteredPlayers.map((p: Player, idx: number) => (
                   <tr key={p.id} className="hover:bg-slate-800/40 transition-colors">
                     {/* Rank & Name */}
                     <td className="py-3 px-3">

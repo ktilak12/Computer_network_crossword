@@ -1,5 +1,5 @@
 import React from 'react';
-import { RoomState } from '../types.js';
+import { RoomState, Player } from '../types.js';
 import { Trophy, Timer, Minimize2, Users, Flame, QrCode } from 'lucide-react';
 
 interface ProjectorViewProps {
@@ -13,8 +13,8 @@ export const ProjectorView: React.FC<ProjectorViewProps> = ({
   qrCodeUrl,
   onExitProjector,
 }) => {
-  const players = Object.values(room.players);
-  const sortedPlayers = [...players].sort((a, b) => {
+  const players: Player[] = Object.values(room.players);
+  const sortedPlayers: Player[] = [...players].sort((a, b) => {
     if (b.score !== a.score) return b.score - a.score;
     if (b.progress !== a.progress) return b.progress - a.progress;
     return (a.completedAt || Infinity) - (b.completedAt || Infinity);
@@ -131,7 +131,7 @@ export const ProjectorView: React.FC<ProjectorViewProps> = ({
                 Waiting for students to join...
               </div>
             ) : (
-              sortedPlayers.slice(0, 10).map((p, idx) => (
+              sortedPlayers.slice(0, 10).map((p: Player, idx: number) => (
                 <div
                   key={p.id}
                   className={`flex items-center justify-between p-3.5 rounded-2xl border transition-all ${

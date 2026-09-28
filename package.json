@@ -3,8 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "description": "Real-time multiplayer Computer Networks crossword game for classroom learning",
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ],
   "scripts": {
     "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "postinstall": "npm install --prefix client --include=dev && npm install --prefix server --include=dev",
+    "prebuild": "npm install --prefix client --include=dev && npm install --prefix server --include=dev",
     "install:all": "npm install --include=dev && npm install --prefix client --include=dev && npm install --prefix server --include=dev",
     "build": "npm run build --prefix client && npm run build --prefix server",
     "start": "npm run start --prefix server"
